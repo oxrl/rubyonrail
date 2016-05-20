@@ -5,10 +5,35 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    #@post = Post.first
+    #render action: :show
+    #redirect_to action: :show, id: Post.first.id
+  end
+  # GET /post/action/task
+  def action
+    @task =  params[:task]
+    @var =  params[:var]
+    @format = params[:format]
+
+    if cookies[:token].nil?
+      cookies[:token]='NKUSE3'
+    end
+      @token=cookies[:token]
+
+    if session[:var].nil?
+      session[:var]='Session Var'
+    end
+      @var=session[:var]
+
+    if flash[:error_text].nil?
+      flash[:error_text]='Error Text'
+    end
+
   end
 
   # GET /posts/1
   # GET /posts/1.json
+
   def show
   end
 
