@@ -29,6 +29,9 @@ class PostsController < ApplicationController
       flash[:error_text]='Error Text'
     end
 
+    @actions=['review','publish','clean']
+
+    render status: 404
   end
 
   # GET /posts/1
